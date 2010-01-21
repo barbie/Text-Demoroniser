@@ -15,26 +15,34 @@ BEGIN {
 	@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 }
 
+my %character = (    # ASCII     UTF8
+    "\xE2\x80\x9A" => [ ',',   "\x201A" ],    # 82 - SINGLE LOW-9 QUOTATION MARK
+    "\xE2\x80\x9E" => [ ',,',  "\x201E" ],    # 84 - DOUBLE LOW-9 QUOTATION MARK
+    "\xE2\x80\xA6" => [ '...', "\x2026" ],    # 85 - HORIZONTAL ELLIPSIS
+    "\xCB\x86"     => [ '^', "\x02C6" ],      # 88 - MODIFIER LETTER CIRCUMFLEX ACCENT
+    "\xE2\x80\x98" => [ '`',  "\x2018" ],    # 91 - LEFT SINGLE QUOTATION MARK
+    "\xE2\x80\x99" => [ q{'}, "\x2019" ],    # 92 - RIGHT SINGLE QUOTATION MARK
+    "\xE2\x80\x9C" => [ '"',  "\x201C" ],    # 93 - LEFT DOUBLE QUOTATION MARK
+    "\xE2\x80\x9D" => [ '"',  "\x201D" ],    # 94 - RIGHT DOUBLE QUOTATION MARK
+    "\xE2\x80\xA2" => [ '*',  "\x2022" ],    # 95 - BULLET
+    "\xE2\x80\x93" => [ '-',  "\x2013" ],    # 96 - EN DASH
+    "\xE2\x80\x94" => [ '-',  "\x2014" ],    # 97 - EM DASH
+
+    "\xE2\x80\xB9" => [ '<', "\x2039" ],    # 8B - SINGLE LEFT-POINTING ANGLE
+                                            #      QUOTATION MARK
+    "\xE2\x80\xBA" => [ '>', "\x203A" ],    # 9B - SINGLE RIGHT-POINTING ANGLE 
+                                            #      QUOTATION MARK
+
+);
+
+my $characters_re = '(' . join( '|', keys %character ) . ')';
+
+
 sub demoroniser {
 	my $str	= shift;
     return  unless(defined $str);
 
-	$str =~ s/\xE2\x80\x9A/,/g;		# 82 - SINGLE LOW-9 QUOTATION MARK
-	$str =~ s/\xE2\x80\x9E/,,/g;	# 84 - DOUBLE LOW-9 QUOTATION MARK
-	$str =~ s/\xE2\x80\xA6/.../g;	# 85 - HORIZONTAL ELLIPSIS
-
-	$str =~ s/\xCB\x86/^/g;			# 88 - MODIFIER LETTER CIRCUMFLEX ACCENT
-
-	$str =~ s/\xE2\x80\x98/`/g;		# 91 - LEFT SINGLE QUOTATION MARK
-	$str =~ s/\xE2\x80\x99/'/g;		# 92 - RIGHT SINGLE QUOTATION MARK
-	$str =~ s/\xE2\x80\x9C/"/g;		# 93 - LEFT DOUBLE QUOTATION MARK
-	$str =~ s/\xE2\x80\x9D/"/g;		# 94 - RIGHT DOUBLE QUOTATION MARK
-	$str =~ s/\xE2\x80\xA2/*/g;		# 95 - BULLET
-	$str =~ s/\xE2\x80\x93/-/g;		# 96 - EN DASH
-	$str =~ s/\xE2\x80\x94/-/g;		# 97 - EM DASH
-
-	$str =~ s/\xE2\x80\xB9/</g;		# 8B - SINGLE LEFT-POINTING ANGLE QUOTATION MARK
-	$str =~ s/\xE2\x80\xBA/>/g;		# 9B - SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
+    $str =~ s/$characters_re/$character{$1}[0]/g;
 
 	zap_cp1252($str);
 
@@ -45,22 +53,7 @@ sub demoroniser_utf8 {
 	my $str	= shift;
     return  unless(defined $str);
 
-	$str =~ s/\xE2\x80\x9A/\x201A/g;	# 82 - SINGLE LOW-9 QUOTATION MARK
-	$str =~ s/\xE2\x80\x9E/\x201E/g;	# 84 - DOUBLE LOW-9 QUOTATION MARK
-	$str =~ s/\xE2\x80\xA6/\x2026/g;	# 85 - HORIZONTAL ELLIPSIS
-
-	$str =~ s/\xCB\x86/\x02C6/g;		# 88 - MODIFIER LETTER CIRCUMFLEX ACCENT
-
-	$str =~ s/\xE2\x80\x98/\x2018/g;	# 91 - LEFT SINGLE QUOTATION MARK
-	$str =~ s/\xE2\x80\x99/\x2019/g;	# 92 - RIGHT SINGLE QUOTATION MARK
-	$str =~ s/\xE2\x80\x9C/\x201C/g;	# 93 - LEFT DOUBLE QUOTATION MARK
-	$str =~ s/\xE2\x80\x9D/\x201D/g;	# 94 - RIGHT DOUBLE QUOTATION MARK
-	$str =~ s/\xE2\x80\xA2/\x2022/g;	# 95 - BULLET
-	$str =~ s/\xE2\x80\x93/\x2013/g;	# 96 - EN DASH
-	$str =~ s/\xE2\x80\x94/\x2014/g;	# 97 - EM DASH
-
-	$str =~ s/\xE2\x80\xB9/\x2039/g;	# 8B - SINGLE LEFT-POINTING ANGLE QUOTATION MARK
-	$str =~ s/\xE2\x80\xBA/\x203A/g;	# 9B - SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
+    $str =~ s/$characters_re/$character{$1}[1]/g;
 
 	fix_cp1252($str);
 
