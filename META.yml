@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                     Text-Demoroniser
-version:                  0.01
+version:                  0.02
 abstract:                 A text filter that allows you to demoronise a string.
 author:
   - Barbie <barbie@cpan.org>
@@ -22,7 +22,7 @@ build_requires:
 provides:
   Text::Demoroniser:
     file:     lib/Text/Demoroniser.pm
-    version:  0.01
+    version:  0.02
 no_index:
   directory:
     - t

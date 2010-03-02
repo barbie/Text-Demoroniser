@@ -5,62 +5,61 @@ use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS );
 use Encode::ZapCP1252;
 
 BEGIN {
-	require Exporter;
-	$VERSION = '0.01';
-	@ISA = qw( Exporter );
-	@EXPORT = qw();
-	%EXPORT_TAGS = (
-		'all' => [ qw( demoroniser demoroniser_utf8 ) ]
-	);
-	@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
+    require Exporter;
+    $VERSION = '0.02';
+    @ISA = qw( Exporter );
+    @EXPORT = qw();
+    %EXPORT_TAGS = (
+        'all' => [ qw( demoroniser demoroniser_utf8 ) ]
+    );
+    @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 }
 
-my %character = (    # ASCII     UTF8
-    "\xE2\x80\x9A" => [ ',',   "\x201A" ],    # 82 - SINGLE LOW-9 QUOTATION MARK
-    "\xE2\x80\x9E" => [ ',,',  "\x201E" ],    # 84 - DOUBLE LOW-9 QUOTATION MARK
-    "\xE2\x80\xA6" => [ '...', "\x2026" ],    # 85 - HORIZONTAL ELLIPSIS
-    "\xCB\x86"     => [ '^', "\x02C6" ],      # 88 - MODIFIER LETTER CIRCUMFLEX ACCENT
-    "\xE2\x80\x98" => [ '`',  "\x2018" ],    # 91 - LEFT SINGLE QUOTATION MARK
-    "\xE2\x80\x99" => [ q{'}, "\x2019" ],    # 92 - RIGHT SINGLE QUOTATION MARK
-    "\xE2\x80\x9C" => [ '"',  "\x201C" ],    # 93 - LEFT DOUBLE QUOTATION MARK
-    "\xE2\x80\x9D" => [ '"',  "\x201D" ],    # 94 - RIGHT DOUBLE QUOTATION MARK
-    "\xE2\x80\xA2" => [ '*',  "\x2022" ],    # 95 - BULLET
-    "\xE2\x80\x93" => [ '-',  "\x2013" ],    # 96 - EN DASH
-    "\xE2\x80\x94" => [ '-',  "\x2014" ],    # 97 - EM DASH
+my %character = (   #   ASCII   UTF8
+    "\xE2\x80\x9A" => [ ',',    "\x201A" ],     # 82 - SINGLE LOW-9 QUOTATION MARK
+    "\xE2\x80\x9E" => [ ',,',   "\x201E" ],     # 84 - DOUBLE LOW-9 QUOTATION MARK
+    "\xE2\x80\xA6" => [ '...',  "\x2026" ],     # 85 - HORIZONTAL ELLIPSIS
+    "\xCB\x86"     => [ '^',    "\x02C6" ],     # 88 - MODIFIER LETTER CIRCUMFLEX ACCENT
+    "\xE2\x80\x98" => [ '`',    "\x2018" ],     # 91 - LEFT SINGLE QUOTATION MARK
+    "\xE2\x80\x99" => [ q{'},   "\x2019" ],     # 92 - RIGHT SINGLE QUOTATION MARK
+    "\xE2\x80\x9C" => [ '"',    "\x201C" ],     # 93 - LEFT DOUBLE QUOTATION MARK
+    "\xE2\x80\x9D" => [ '"',    "\x201D" ],     # 94 - RIGHT DOUBLE QUOTATION MARK
+    "\xE2\x80\xA2" => [ '*',    "\x2022" ],     # 95 - BULLET
+    "\xE2\x80\x93" => [ '-',    "\x2013" ],     # 96 - EN DASH
+    "\xE2\x80\x94" => [ '-',    "\x2014" ],     # 97 - EM DASH
 
-    "\xE2\x80\xB9" => [ '<', "\x2039" ],    # 8B - SINGLE LEFT-POINTING ANGLE
-                                            #      QUOTATION MARK
-    "\xE2\x80\xBA" => [ '>', "\x203A" ],    # 9B - SINGLE RIGHT-POINTING ANGLE 
-                                            #      QUOTATION MARK
-
+    "\xE2\x80\xB9" => [ '<',    "\x2039" ],     # 8B - SINGLE LEFT-POINTING ANGLE
+                                                #      QUOTATION MARK
+    "\xE2\x80\xBA" => [ '>',    "\x203A" ],     # 9B - SINGLE RIGHT-POINTING ANGLE
+                                                #      QUOTATION MARK
 );
 
 my $characters_re = '(' . join( '|', keys %character ) . ')';
 
-
 sub demoroniser {
-	my $str	= shift;
+    my $str = shift;
     return  unless(defined $str);
 
     $str =~ s/$characters_re/$character{$1}[0]/g;
 
-	zap_cp1252($str);
+    zap_cp1252($str);
 
     return $str;
 }
 
 sub demoroniser_utf8 {
-	my $str	= shift;
+    my $str = shift;
     return  unless(defined $str);
 
     $str =~ s/$characters_re/$character{$1}[1]/g;
 
-	fix_cp1252($str);
+    fix_cp1252($str);
 
     return $str;
 }
 
 1;
+
 __END__
 
 =pod
@@ -78,7 +77,7 @@ Text::Demoroniser - A text filter that allows you to demoronise a string.
 
 =head1 DESCRIPTION
 
-A text filter that allows you to replace inappropriate Microsoft characters a 
+A text filter that allows you to replace inappropriate Microsoft characters a
 string with something more suitable.
 
 =head1 API
@@ -104,7 +103,7 @@ Barbie, E<lt>barbie@missbarbell.co.ukE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2009 by Barbie
+Copyright (C) 2009,2010 by Barbie
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.7 or,
