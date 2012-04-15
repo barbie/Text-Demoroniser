@@ -1,10 +1,11 @@
 # Changes log for Text-Demoroniser
 
-0.03    current
+0.03    15/04/2012
         - License updated to Artistic License v2.0.
         - removed Artistic file.
         - added META.json and test script.
         - added simple example script.
+        - remove DSLIP info, as its no longer used.
 
 0.02    02/03/2010
         - implemented a better regex lookup (patched thanks to Yanick Champoux)
