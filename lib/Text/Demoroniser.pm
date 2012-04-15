@@ -6,7 +6,7 @@ use Encode::ZapCP1252;
 
 BEGIN {
     require Exporter;
-    $VERSION = '0.02';
+    $VERSION = '0.03';
     @ISA = qw( Exporter );
     @EXPORT = qw();
     %EXPORT_TAGS = (
@@ -99,14 +99,14 @@ L<Encode::ZapCP1252>
 
 =head1 AUTHOR
 
-Barbie, E<lt>barbie@missbarbell.co.ukE<gt>
+  Barbie, <barbie@cpan.org>
+  for Miss Barbell Productions <http://www.missbarbell.co.uk>.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2009,2010 by Barbie
+  Copyright (C) 2009-2012 by Barbie
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.8.7 or,
-at your option, any later version of Perl 5 you may have available.
+  This module is free software; you can redistribute it and/or
+  modify it under the Artistic License v2.
 
 =cut

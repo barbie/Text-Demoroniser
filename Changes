@@ -1,8 +1,14 @@
-# Changes log for Text::Demoroniser
+# Changes log for Text-Demoroniser
+
+0.03    current
+        - License updated to Artistic License v2.0.
+        - removed Artistic file.
+        - added META.json and test script.
+        - added simple example script.
 
 0.02    02/03/2010
-	- implemented a better regex lookup (patched thanks to Yanick Champoux)
+        - implemented a better regex lookup (patched thanks to Yanick Champoux)
 
 0.01    11/08/2009
         - Initial release.
-	- originally inspired by the demoroniser script
+        - originally inspired by the demoroniser script
