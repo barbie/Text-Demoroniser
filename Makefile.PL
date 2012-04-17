@@ -6,6 +6,7 @@ WriteMakefile(
 
         Encode::ZapCP1252   => 0,
 		Test::More	        => 0.70,	# for testing
+        IO::File            => 0        # for testing
 	},
 	NO_META			=> 1,
 

@@ -1,12 +1,14 @@
 package Text::Demoroniser;
 
 use strict;
+use warnings;
+
 use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS );
 use Encode::ZapCP1252;
 
 BEGIN {
     require Exporter;
-    $VERSION = '0.03';
+    $VERSION = '0.04';
     @ISA = qw( Exporter );
     @EXPORT = qw();
     %EXPORT_TAGS = (
@@ -96,6 +98,20 @@ The same as demoroniser, but converts into correct UTF8 versions.
 =head1 SEE ALSO
 
 L<Encode::ZapCP1252>
+
+=head1 BUGS, PATCHES & FIXES
+
+There are no known bugs at the time of this release. However, if you spot a
+bug or are experiencing difficulties that are not explained within the POD
+documentation, please submit a bug to the RT system (see link below). However,
+it would help greatly if you are able to pinpoint problems or even supply a
+patch.
+
+Fixes are dependant upon their severity and my availability. Should a fix not
+be forthcoming, please feel free to (politely) remind me by sending an email
+to barbie@cpan.org .
+
+RT: http://rt.cpan.org/Public/Dist/Display.html?Name=Text-Demoronmiser
 
 =head1 AUTHOR
 
