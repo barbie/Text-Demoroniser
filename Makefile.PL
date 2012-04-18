@@ -1,16 +1,25 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use 5.006;
+
 use ExtUtils::MakeMaker;
+
 WriteMakefile(
-    'NAME'			=> 'Text::Demoroniser',
-    'VERSION_FROM'	=> 'lib/Text/Demoroniser.pm',
-    'PREREQ_PM'		=> {
+    AUTHOR              => 'Barbie <barbie@cpan.org>',
+    NAME                => 'Text::Demoroniser',
+    VERSION_FROM        => 'lib/Text/Demoroniser.pm',
+    ABSTRACT            => 'A text filter that allows you to demoronise a string',
+    NO_META             => 1,
+    PREREQ_PM           => {
 
-        Encode::ZapCP1252   => 0,
-		Test::More	        => 0.70,	# for testing
-        IO::File            => 0        # for testing
-	},
-	NO_META			=> 1,
+        # prereqs
+        'Encode::ZapCP1252' => 0,
 
-    ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
-      (ABSTRACT	=> 'A text filter that allows you to demoronise a string',
-       AUTHOR	=> 'Barbie <barbie@cpan.org>') : ()),
+        # build/test prereqs
+        'Test::More'        => '0.70',
+        'IO::File'          => '0'
+
+    }
 );

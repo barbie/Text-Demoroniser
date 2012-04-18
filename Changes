@@ -1,5 +1,8 @@
 # Changes log for Text-Demoroniser
 
+0.05	18/04/2012
+	- META tests no longer require specific versions.
+
 0.04	16/04/2012
 	- added use warnings.
 	- spelling fix. (thanks to Florian Schlichting & Gregor Herrmann).

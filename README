@@ -20,16 +20,16 @@ For testing purposes, the following modules are desireable, but not essential:
   Test::Pod::Coverage	    >= 0.08
   Pod::Coverage
   Test::CPAN::Meta	    >= 0
-  Test::CPAN::Meta::JSON    >= 1.10
+  Test::CPAN::Meta::JSON    >= 0
 
 INSTALLATION
 
 To install this module type the following:
 
- perl Makefile.PL
- make
- make test
- make install
+  perl Makefile.PL
+  make
+  make test
+  make install
 
 For more detailed installation instructions, see INSTALL.
 

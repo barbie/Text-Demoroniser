@@ -1,6 +1,6 @@
 {
     "name": "Text-Demoroniser",
-    "version": "0.04",
+    "version": "0.05",
     "abstract": "A text filter that allows you to demoronise a string.",
     "author": ["Barbie <barbie@cpan.org>"],
 
@@ -31,11 +31,10 @@
                 "Test::More": "0.70"
             },
             "recommends": {
-                "Test::More": "0.70",
-                "Test::Pod": "1.00",
-                "Test::Pod::Coverage": "0.08",
                 "Test::CPAN::Meta": "0",
-                "Test::CPAN::Meta::JSON": "0.10"
+                "Test::CPAN::Meta::JSON": "0",
+                "Test::Pod": "1.00",
+                "Test::Pod::Coverage": "0.08"
             }
         }
     },
@@ -43,7 +42,7 @@
     "provides": {
         "Text::Demoroniser": {
             "file": "lib/Text/Demoroniser.pm",
-            "version": "0.04"
+            "version": "0.05"
         }
     },
     "no_index": {
