@@ -122,7 +122,7 @@ RT: http://rt.cpan.org/Public/Dist/Display.html?Name=Text-Demoronmiser
 
   Copyright (C) 2009-2012 by Barbie
 
-  This module is free software; you can redistribute it and/or
+  This distribution is free software; you can redistribute it and/or
   modify it under the Artistic License v2.
 
 =cut
