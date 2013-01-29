@@ -8,19 +8,19 @@ more normal characters within a given string.
 
 DEPENDENCIES
 
-  Encode::ZapCP1252         >= 0
+  Encode::ZapCP1252
 
 For testing purposes, the following modules are required:
 
-  Test::More		    >= 0.70
+  Test::More
 
 For testing purposes, the following modules are desireable, but not essential:
 
-  Test::Pod		    >= 1.00
-  Test::Pod::Coverage	    >= 0.08
   Pod::Coverage
-  Test::CPAN::Meta	    >= 0
-  Test::CPAN::Meta::JSON    >= 0
+  Test::CPAN::Meta
+  Test::CPAN::Meta::JSON
+  Test::Pod
+  Test::Pod::Coverage
 
 INSTALLATION
 
@@ -60,7 +60,7 @@ for Miss Barbell Productions http://www.missbarbell.co.uk.
 
 COPYRIGHT AND LICENSE
 
-Copyright (C) 2009-2012 Barbie for Miss Barbell Productions.
+Copyright (C) 2009-2013 Barbie for Miss Barbell Productions.
 
 This distribution is free software; you can redistribute it and/or
 modify it under the Artistic License v2.
