@@ -1,6 +1,7 @@
 # Changes log for Text-Demoroniser
 
         - change file dates changed to meet W3CDTF standards.
+        - updated test suite.
 
 0.05    2012-04-22
         - META tests no longer require specific versions.
