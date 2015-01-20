@@ -1,6 +1,6 @@
 {
     "name": "Text-Demoroniser",
-    "version": "0.06",
+    "version": "0.07",
     "abstract": "A text filter that allows you to demoronise a string.",
     "author": ["Barbie <barbie@cpan.org>"],
 
@@ -42,7 +42,7 @@
     "provides": {
         "Text::Demoroniser": {
             "file": "lib/Text/Demoroniser.pm",
-            "version": "0.06"
+            "version": "0.07"
         }
     },
     "no_index": {
